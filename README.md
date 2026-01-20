@@ -32,7 +32,6 @@ This cycle continues until the child's sensory overload subsides, providing a no
 
 - **Microcontroller**: TI MSP430G2553 (16MHz)  
 - **Targets**:  
-  - LAUNCHPAD (development/testing)  
 - **Power**: Battery-powered for mobility
 
 ---
@@ -74,16 +73,7 @@ This cycle continues until the child's sensory overload subsides, providing a no
 - **Modes**:  
   - Forward/Reverse: Direct movement  
   - Rotate Left/Right: In-place turning  
-  - Arc turns: Smooth curved movements (sharp, mid, wide)
 
-#### Speed Profiles
-
-- **SLOW** (25%): Gentle, non-threatening approach  
-- **MEDIUM** (45%): Normal operation  
-- **FAST** (55%): Quick repositioning  
-- **MAX** (100%): Emergency maneuvers only
-
----
 
 ### State Machine Design
 
@@ -93,7 +83,7 @@ The robot operates using a sophisticated finite state machine with 5 core states
 
 - **Purpose**: Idle state waiting for therapy session to begin  
 - **Triggers**: IR remote command to start  
-- **Behavior**: Robot remains stationary, LED indicators show ready status
+- **Behavior**: Robot is powered off
 
 #### 2. SEARCH State
 
@@ -129,12 +119,6 @@ The robot operates using a sophisticated finite state machine with 5 core states
   - Arc turns: Smooth curved retreats  
   - Alignment: Complex multi-move sequences for optimal positioning  
 - **Safety**: Ensures robot never gets trapped or damaged
-
-#### 5. MANUAL State
-
-- **Purpose**: Caregiver control override  
-- **Function**: Direct remote control for emergency situations  
-- **Safety**: Allows immediate intervention when needed
 
 ---
 
@@ -178,7 +162,6 @@ The retreat system uses predefined move sequences based on boundary position:
 ### Sensory Calming Mechanisms
 
 1. **LED Light Therapy**: Gentle, rhythmic light patterns  
-2. **Auditory Feedback**: Soft humming or gentle sounds  
 3. **Movement Patterns**: Predictable, smooth robot movements  
 4. **Proximity Control**: Maintains optimal therapeutic distance
 
@@ -209,7 +192,6 @@ The retreat system uses predefined move sequences based on boundary position:
 
 ## Code Quality
 
-- **Static Analysis**: Automated code quality checks  
 - **Formatting**: Consistent code style enforcement  
 - **Documentation**: Comprehensive inline documentation  
 - **Error Handling**: Robust error detection and recovery
@@ -232,7 +214,7 @@ The retreat system uses predefined move sequences based on boundary position:
 ### Therapy Components
 
 - Speaker/buzzer for auditory feedback  
-- LED panel for light therapy  
+- LED for light therapy  
 - Additional sensors for enhanced detection
 
 ---
@@ -241,7 +223,7 @@ The retreat system uses predefined move sequences based on boundary position:
 
 ### For Caregivers
 
-1. **Setup**: Place robot in designated therapy area  
+1. **Setup**: Place robot in the designated therapy area  
 2. **Activation**: Use IR remote to start therapy session  
 3. **Monitoring**: Observe child-robot interaction  
 4. **Session End**: Use remote to stop therapy
